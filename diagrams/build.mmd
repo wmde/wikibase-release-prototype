@@ -1,0 +1,7 @@
+graph LR
+  wbgit[Wikibase Git Repo] --> wbtar[Tarball] --> publish[Later Steps];
+  wbtar --> wbdocker[Docker Image] --> publish;
+  qsgit[Wikibase Query Service Tarball] --> qstar[Tarball] --> publish;
+  qstar --> qsdocker[Docker Image] --> publish;
+  qsuigit[Wikibase Query Service Tarball] --> qsuitar[Tarball] --> publish;
+  qsuitar --> qsuidocker[Docker Image] --> publish;
