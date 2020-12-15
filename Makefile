@@ -17,7 +17,4 @@ queryservice-ui:
 	bash update_cache.sh
 	eval ". ./build_scripts/build_queryservice_ui.sh; bash build_scripts/build_queryservice_ui_docker.sh ${QUERYSERVICE_UI_IMAGE_NAME}"
 
-all:
-	make wikibase
-	make queryservice
-	make queryservice-ui
+all:wikibase queryservice queryservice-ui
