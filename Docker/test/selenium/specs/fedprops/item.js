@@ -33,7 +33,7 @@ describe( 'Fed props Item', function () {
 		};
 		browser.call( () => WikibaseApi.createItem( Util.getTestString( itemLabel ), data ) );
 
-		browser.url( process.env.MW_SERVER + '/wiki/Item:' + itemId );
+		browser.url( process.env.WIKIBASE_CONCEPT_URI + '/wiki/Item:' + itemId );
 
 		const actualPropertyValue = $( '.wikibase-statementgroupview-property' ).getText();
 		assert( actualPropertyValue.includes( propertyValue ) ); // value is the label
@@ -80,7 +80,7 @@ describe( 'Fed props Item', function () {
 		QueryServiceUI.resultTable.waitForDisplayed();
 
 		// label should match on the prefix
-		assert( QueryServiceUI.resultIncludes( '<' + process.env.MW_SERVER + '/entity/' + itemId + '>', propertyValue ) );
+		assert( QueryServiceUI.resultIncludes( '<' + process.env.WIKIBASE_CONCEPT_URI + '/entity/' + itemId + '>', propertyValue ) );
 
 	} );
 
