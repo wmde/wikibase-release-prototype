@@ -13,7 +13,7 @@
 				"mwOAuthIW":"mw"
 			} ,
 			"server" : "${WB_PUBLIC_SCHEME_HOST_AND_PORT}" ,
-			"api" : "${WB_PUBLIC_SCHEME_HOST_AND_PORT}/w/api.php" ,
+			"api" : "${WIKIBASE_SCHEME_AND_HOST}/w/api.php" ,
 			"pageBase" : "${WB_PUBLIC_SCHEME_HOST_AND_PORT}/wiki/" ,
 			"toolBase" : "${QS_PUBLIC_SCHEME_HOST_AND_PORT}/" ,
 			"types" : {
