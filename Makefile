@@ -37,6 +37,7 @@ requirements:
 	python3 build/requirements/build_version_requirements.py
 	cat artifacts/built_versions.log
 
+# the Wikibase base and bundle docker images are no longer based on this custom MediaWiki image
 mediawiki:
 	bash update_cache.sh core skins
 	eval ". ./build/build_mediawiki.sh; bash build/build_mediawiki_docker.sh ${MEDIAWIKI_IMAGE_NAME}"
@@ -75,4 +76,4 @@ clean:
 	rm -rf artifacts/*.log
 	rm -rf artifacts/*.env
 
-all: mediawiki wikibase wikibase_bundle elasticsearch wdqs wdqs-frontend wdqs-proxy quickstatements
+all: wikibase wikibase_bundle elasticsearch wdqs wdqs-frontend wdqs-proxy quickstatements

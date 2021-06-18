@@ -26,8 +26,8 @@ jobs:
       - run: curl --silent https://www.mediawiki.org/wiki/Template:MW_stable_release_number 2>&1 | grep "$MEDIAWIKI_VERSION"
 
   build_mediawiki:
+    if: ${{ false }} # disabled
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
 
@@ -81,8 +81,6 @@ jobs:
         
   build_wikibase:
     runs-on: ubuntu-latest
-    needs:
-      - build_mediawiki
     steps:
       - uses: actions/checkout@v2
 
@@ -158,7 +156,6 @@ jobs:
   build_wikibase_bundle:
     runs-on: ubuntu-latest
     needs:
-      - build_mediawiki
       - build_wikibase
     steps:
       - uses: actions/checkout@v2
