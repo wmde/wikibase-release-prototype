@@ -108,12 +108,6 @@ jobs:
           path: git_cache
           key: cache-wikibase-git-repo-temp-bump
 
-      - name: Get dependency build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: BuildArtifacts
-          path: artifacts/
-
       - name: Build Tarball
         run: bash build.sh wikibase ${{ env.env_file }}
 
