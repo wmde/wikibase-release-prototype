@@ -15,8 +15,8 @@ env:
 jobs:
 
   build_mediawiki:
+    if: ${{ false }} # disabled
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
 
@@ -70,8 +70,6 @@ jobs:
         
   build_wikibase:
     runs-on: ubuntu-latest
-    needs:
-      - build_mediawiki
     steps:
       - uses: actions/checkout@v2
 
@@ -98,12 +96,6 @@ jobs:
         with:
           path: git_cache
           key: cache-wikibase-git-repo-temp-bump
-
-      - name: Get dependency build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: BuildArtifacts
-          path: artifacts/
 
       - name: Build Tarball
         run: bash build.sh wikibase ${{ env.env_file }}
@@ -147,7 +139,6 @@ jobs:
   build_wikibase_bundle:
     runs-on: ubuntu-latest
     needs:
-      - build_mediawiki
       - build_wikibase
     steps:
       - uses: actions/checkout@v2
